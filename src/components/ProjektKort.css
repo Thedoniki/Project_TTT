@@ -1,0 +1,47 @@
+.projekt-kort {
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;                      /* bilden får runda hörn upptill */
+  text-align: left;
+  box-shadow: 0 2px 8px rgba(74, 46, 81, 0.12);
+}
+
+.projekt-bild {
+  display: block;
+  width: 100%;
+  height: auto; /* höjden anpassas efter bildens proportioner */
+  object-fit: contain;/* contain gör att hela bilden syns utan att förvrängas eller beskäras. Bilden ryms inom området som är 100% av kortets bredd och 160px högt. Om bildens proportioner inte matchar området blir det tomrum på sidorna eller ovanför och nedanför; den vita bakgrundsfärgen syns då där.
+  background-color: #ffffff;
+  
+  /*object-fit: cover; <-- bilden fyller rutan utan att bli utdragen */
+}
+
+.projekt-info {
+  padding: 20px;
+}
+
+.projekt-info h3 {
+  margin: 0 0 8px;
+  color: #261f3a;
+  font-size: 20px;
+}
+
+.projekt-knapp {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background-color: #7e2b60;
+  color: #fcf6fa;
+  font-weight: 600;
+  text-decoration: none;            /* tar bort understrykningen */
+}
+
+.projekt-knapp:hover {
+  background-color: #320120;
+}
+
+.projekt-knapp:focus-visible {
+  outline: 3px solid #7e2b60;
+  outline-offset: 4px;
+}

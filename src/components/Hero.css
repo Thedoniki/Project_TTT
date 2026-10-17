@@ -1,0 +1,124 @@
+/* Main hero section: creates a two-column layout with content and image side by side,
+   adds spacing, and sets the overall background and text colors for the banner. */
+
+/* .hero väljer section-elementet med className="hero" i Hero.jsx. */
+.hero {
+    display: grid;
+  /* Grid delar den tillgängliga bredden i två lika stora spalter nedan. */
+  text-align: left;
+  grid-template-columns: 1fr 1fr;
+
+  /* gap är avståndet mellan innehållsspalten och bildspalten. */
+  gap: 10px;
+  /* Padding anges i ordningen topp, höger/vänster, botten. */
+ /*padding: 64px 32px 72px;*/ 
+  padding: 40px 20px;
+  background-color: #dd1d1d;
+  /* Färgen ärvs av barnens text om de inte får en egen color-regel. */
+  color: white;
+}
+
+/* Keeps the content column from shrinking too much so text can wrap without breaking layout. */
+/* Klassen matchar div-elementet med className="hero-innehall". */
+.hero-innehall {
+  min-width: 0;
+}
+
+/* Makes the hero image fill its column while keeping its original aspect ratio and rounding corners. */
+
+.hero-bild {
+  display: block;
+  /* auto bevarar bildens proportioner när bredd eller höjd begränsas. */
+  height: auto;
+  border-radius: 8px;
+  /* Bilden får som mest använda hälften av tillgänglig bredd/höjd. */
+  max-width: 50%;
+  max-height: 50%;
+  /* Grid-egenskapen placerar bilden i mitten av sin cell. */
+  justify-self: center;
+}
+/*Jimmys variant:
+
+.hero-bild {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}*/
+
+/* Styles the small intro label above the heading in a muted pink color. */
+/* Klassnamnet matchar intro-paragrafens className i Hero.jsx. */
+.hero-intro {
+  margin: 0 0 16px;
+  color: #7e2b60;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* Controls the main heading size, spacing, and color for strong visual emphasis. */
+/* ".hero h2" betyder att regeln bara gäller h2 inuti .hero. */
+.hero h2 {
+  /* ch mäter ungefär bredden på tecknet 0 i det aktuella typsnittet. */
+  max-width: 20ch;
+  margin: 0 0 24px;
+  color: #261f3a;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+
+/* Limits the paragraph width for readable line lengths and adds spacing below the text block. */
+/* Klassnamnet matchar brödtextens className i Hero.jsx. */
+.hero-text {
+  max-width: 55ch;
+  margin: 0 0 32px;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+
+/* Styles the primary call-to-action button as a pink pill-shaped link with white text. */
+/* Länken ser ut som en knapp men är fortfarande ett vanligt <a>-element. */
+.hero-knapp {
+  /* inline-block tillåter padding och storlek samtidigt som elementet ligger i textraden. */
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 10px;
+  background-color: #7e2b60;
+  color: #fcf6fa;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* Darkens the button on hover to provide a visual pressed/interactive state. */
+/* :hover betyder att reglerna aktiveras när muspekaren ligger över länken. */
+.hero-knapp:hover {
+  background-color: #320120;
+}
+
+/* Adds a visible keyboard focus ring so the button remains accessible for keyboard users. */
+/* :focus-visible visar fokusmarkeringen vid tangentbordsnavigering. */
+.hero-knapp:focus-visible {
+  outline: 3px solid #7e2b60;
+  outline-offset: 4px;
+}
+
+/* On smaller tablet/mobile widths, stack the columns into a single column. */
+/* Media queryn ändrar layouten när visningsområdet är högst 800px brett. */
+@media (max-width: 800px) {
+  .hero {
+    /* En enda 1fr-spalt gör att innehåll och bild hamnar under varandra. */
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+/* On very small screens, reduce the section padding to fit tighter mobile layouts. */
+/* Den här regeln gäller bara när skärmen är högst 600px bred. */
+@media (max-width: 600px) {
+  .hero {
+    padding: 40px 20px 48px;
+  }
+}

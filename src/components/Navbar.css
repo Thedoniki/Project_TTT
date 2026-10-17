@@ -1,0 +1,34 @@
+/* .navbar kopplas till <nav className="navbar"> i Navbar.jsx. */
+.navbar {
+  display: flex;                    /* lägger logo och länkar på en rad */
+  justify-content: space-between;   /* logo till vänster, länkar till höger */
+  /* align-items centrerar flex-barnen längs den lodräta axeln. */
+  align-items: center;
+  /* Inre luft: 16px lodrätt och 32px vågrätt. */
+  padding: 16px 32px;
+  background-color: #656f93ba;
+}
+
+/* .logo väljer span-elementet med className="logo". */
+.logo {
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* .lankar väljer länkarnas föräldra-div och gör länkarna till flex-barn. */
+.lankar {
+  display: flex;
+  gap: 24px;                        /* avstånd mellan länkarna */
+}
+
+/* Mellanslaget betyder att regeln gäller a-element inuti .lankar. */
+.lankar a {
+  color: white;
+  text-decoration: none;            /* tar bort understrykningen */
+}
+
+/* :hover är ett tillstånd: regeln används när pekaren ligger över länken. */
+.lankar a:hover {
+  text-decoration: underline;
+}

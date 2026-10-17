@@ -1,0 +1,21 @@
+/* .header väljer elementet med className="header" i Header.jsx.
+   CSS-regler här styr utseende, inte värdena för namn eller titel-props. */
+.header {
+  /* text-align centrerar den text som finns inuti header-elementet. */
+  text-align: center;
+  /* padding skapar luft innanför elementets kanter (lodrätt, sedan vågrätt). */
+  padding: 80px 20px;
+  background-color: #30455285;
+}
+
+/* Mellanslaget i ".header h1" betyder: välj h1-element som är inuti .header. */
+.header h1 {
+  font-size: 48px;
+  /* Tar bort webbläsarens vanliga yttre marginal runt rubriken. */
+  margin: 0;
+}
+
+/* På samma sätt väljer detta stycke p-element inuti header-klassen. */
+.header p {
+  font-size: 20px;
+}

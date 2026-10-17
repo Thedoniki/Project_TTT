@@ -1,0 +1,11 @@
+/* Klassväljaren .footer matchar className="footer" i Footer.jsx.
+   Klassnamnet är självvalt; punkt används i CSS för att välja en klass. */
+.footer {
+  /* Centrerar text horisontellt inuti sidfoten. */
+  text-align: center;
+  /* Inre luft: 32px ovan/under och 20px vänster/höger. */
+  padding: 32px 20px;
+  /* Bakgrundsfärg och textfärg påverkar innehållet i sidfoten. */
+  background-color: #1e293b;
+  color: white;
+}

@@ -1,0 +1,8 @@
+/* Globala grundregler: body omsluter sidans innehåll och påverkar därför
+   alla komponenter, om inte mer specifika CSS-regler skriver över dem. */
+body {
+  /* Ta bort webbläsarens standardmarginal så layouten kan börja vid fönstrets kant. */
+  margin: 0;
+  /* Arial används som grundtypsnitt; sans-serif är reserv om Arial saknas. */
+  font-family: Arial, sans-serif;
+}
