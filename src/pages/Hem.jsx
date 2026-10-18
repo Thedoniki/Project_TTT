@@ -1,0 +1,15 @@
+import Header from '../components/Header'; // importerar Header-komponenten från filen Header.jsx i components-mappen
+import Hero from '../components/Hero'; // importerar Hero-komponenten från filen Hero.jsx i components-mappen
+import Projekt from '../components/Projekt';
+
+function Hem() {
+    return (
+        <>
+        <Header namn="Niki" titel="Overachever" />
+        <Hero namn="Hero Niki" />
+        <Projekt />
+        </>
+    );
+    }
+
+    export default Hem;

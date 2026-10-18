@@ -12,7 +12,7 @@
 .header h1 {
   font-size: 40px;
   /* Tar bort webbläsarens vanliga yttre marginal runt rubriken. */
-  margin: 5px 0;
+  margin: 10px 0;
 }
 
 /* På samma sätt väljer detta stycke p-element inuti header-klassen. */
