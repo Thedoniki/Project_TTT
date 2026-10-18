@@ -2,7 +2,7 @@ import Navbar from './components/Navbar'; //importerar Navbar-komponenten från 
 import Header from './components/Header'; // importerar Header-komponenten från filen Header.jsx i components-mappen
 import Valkommen from "./components/Valkommen";
 import Halsning from './components/Halsning';
-import OmMig from './components/OmMig';
+import OmMig from './pages/OmMig';
 import Hero from './components/Hero';
 import Footer from './components/Footer';// Importen gör komponenten tillgänglig i App.jsx. Sökvägen pekar på filen där Footer exporteras.
 import Intressen from './components/Intressen';
