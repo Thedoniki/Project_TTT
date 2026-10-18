@@ -13,12 +13,12 @@ function Navbar() {
         {/* href="#" pekar till sidans början. De andra href-värdena är fragmentlänkar:
             de söker efter ett element med matchande id på samma sida. Just nu saknas
             id="om-mig", och id="kontakt" finns i Footer men Footer renderas inte i App. */}
-        <a href="#">Hem</a> {/* // För att länken ska hoppa någonstans måste ett sådant id finnas. 
+        <a href="/">Hem</a> {/* // För att länken ska hoppa någonstans måste ett sådant id finnas. 
         // Om du vill att länken ska hoppa till en viss del av sidan, se till att det finns ett element med motsvarande id.
         //Man lägger till element med id="om-mig" i OmMig-komponenten och id="kontakt" i Footer-komponenten. 
         // När dessa element finns på sidan kommer länkarna att fungera korrekt och hoppa till respektive sektion när de klickas. */}
         
-        <a href="#projekt">Projekt</a> {/* För att länken ska hoppa någonstans måste ett sådant id finnas. Om du vill att länken ska hoppa till en viss del av sidan, se till att det finns ett element med motsvarande id. Man lägger till element med id="projekt" i Projekt-komponenten. När detta element finns på sidan kommer länken att fungera korrekt och hoppa till sektionen när den klickas. */}
+        <a href="/#projekt">Projekt</a> {/* För att länken ska hoppa någonstans måste ett sådant id finnas. Om du vill att länken ska hoppa till en viss del av sidan, se till att det finns ett element med motsvarande id. Man lägger till element med id="projekt" i Projekt-komponenten. När detta element finns på sidan kommer länken att fungera korrekt och hoppa till sektionen när den klickas. */}
         
 
       {/* Förut – hoppar till en sektion på samma sida

@@ -9,3 +9,17 @@
   background-color: #1e293b;
   color: white;
 }
+.om-mig-listaa {
+  display: flex;                         /* lägger etiketterna på en rad */
+  justify-content: flex-start; /* justerar etiketterna till vänster */
+  flex-wrap: wrap;                  /* på mobil hamnar de på flera rader */
+  gap: 12px;
+  padding: 0;
+  margin: 0;
+  list-style: none;                 /* tar bort pricken framför */
+}
+.om-mig-listaa li {
+  padding: 8px 20px;
+  color: #e3dede;
+  font-weight: 600;
+}
