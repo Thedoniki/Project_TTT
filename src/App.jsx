@@ -30,22 +30,22 @@ function App() {
           Header använder just nu namn och titel; stad skickas men visas inte. */}
       <Header namn="Niki" titel="Overachever" stad="Helsingborg" />
 
-      <Valkommen />
+      {/*<Valkommen />*/}
 
       {/* OmMig får inga props här; dess text är skriven direkt i OmMig.jsx.
           OmMig.css används därifrån för utseendet, inte för att skicka data. */}
-      <OmMig />
+      {/*<OmMig />*/}
 
       {/* Detta är samma prop-mönster som för Hero: Halsning får prop:en namn
           med värdet "TheDoniki". */}
-      <Halsning namn="TheDoniki" />
+      {/*<Halsning namn="TheDoniki" />*/}
 
       {/* Skickar strängen "Hero Niki" under prop-namnet namn.
           Hero-komponenten tar emot den och visar den i sin introduktion. */}
       <Hero namn="Hero Niki" />
       {/* Intressen-komponenten renderas här utan props. */}
       <Projekt />
-      <Intressen />
+      {/*<Intressen />*/}
       {/* Footer renderas längst ned. Dess id="kontakt" är målet för Navbar-länken
           href="#kontakt", så webbläsaren kan hoppa hit när länken klickas. */}
       <Footer />
