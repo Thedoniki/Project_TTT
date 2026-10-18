@@ -1,0 +1,82 @@
+.om-mig {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 0.75fr);
+  grid-template-areas: "content image";
+  align-items: center;
+  gap: clamp(32px, 6vw, 80px);
+  padding: 64px clamp(32px, 8vw, 120px);
+  text-align: left;
+  background-color: #ffffff;
+}
+
+.om-mig-innehall {
+  grid-area: content;
+}
+
+.om-mig-bild {
+  grid-area: image;
+  display: block;
+  justify-self: end;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 15px;
+}
+
+.om-mig h2 {
+  font-size: 32px;
+  margin: 0 0 24px;
+}
+
+.om-mig-text {
+  max-width: 55ch;                  /* lagom lång rad, lätt att läsa */
+  margin: 0 0 24px;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.om-mig h3 {
+  margin: 0 0 16px;
+  color: #261f3a;
+  font-size: 20px;
+  padding-top: 15px;
+}
+
+.om-mig-lista {
+  display: flex;                    /* lägger etiketterna på en rad */
+  flex-wrap: wrap;                  /* på mobil hamnar de på flera rader */
+  gap: 12px;
+  padding: 0;
+  margin: 0;
+  list-style: none;                 /* tar bort pricken framför */
+}
+
+.om-mig-lista li {
+  padding: 8px 20px;
+  border-radius: 999px;             /* helt runda kanter */
+  background-color: #ede9f6;
+  color: #7e2b60;
+  font-weight: 600;
+}
+
+/* På mindre skärmar staplas innehållet med texten först. */
+@media (max-width: 800px) {
+  .om-mig {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "content"
+      "image";
+    gap: 32px;
+  }
+
+  .om-mig-bild {
+    justify-self: center;
+    width: min(70%, 300px);
+  }
+}
+
+@media (max-width: 600px) {
+  .om-mig {
+    padding: 40px 20px;
+  }
+}

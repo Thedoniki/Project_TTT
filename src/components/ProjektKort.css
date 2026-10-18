@@ -4,6 +4,9 @@
   overflow: hidden;                      /* bilden får runda hörn upptill */
   text-align: left;
   box-shadow: 0 2px 8px rgba(74, 46, 81, 0.12);
+    display: flex;
+  flex-direction: column;                /* bild och info under varandra */
+
 }
 
 .projekt-bild {
@@ -18,17 +21,25 @@
 
 .projekt-info {
   padding: 20px;
+    flex: 1;                               /* info-delen fyller resten av kortet */
+  display: flex;
+  flex-direction: column;
 }
-
+.projekt-info p {
+  margin-bottom: 16px;                   /* luft mellan texten och knappen */
+}
 .projekt-info h3 {
   margin: 0 0 8px;
   color: #261f3a;
   font-size: 20px;
 }
 
+
 .projekt-knapp {
   display: inline-block;
-  margin-top: 16px;
+/*  margin-top: 16px;    ändring tors ef 15/10*/
+ margin-top: auto;                 /* skjuter knappen längst ner */
+  align-self: flex-start;           /* knappen blir inte lika bred som kortet */
   padding: 10px 20px;
   border-radius: 10px;
   background-color: #7e2b60;

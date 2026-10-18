@@ -1,3 +1,9 @@
+# Min portfolio
+
+En personlig portfoliosida byggd med React. Här presenterar jag mig själv, mina projekt och det jag lär mig inom webbutveckling.
+
+**Skapad av:** Donika Mehmeti
+
 # Project_TTT
 
 Duplicate from min-sida in documents repo. Code til 15Okt 2026.

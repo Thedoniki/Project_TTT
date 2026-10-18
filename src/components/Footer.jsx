@@ -1,5 +1,7 @@
 // Footer.css innehåller utseendet för sidfoten.
 import './Footer.css';
+import { Link } from 'react-router-dom'
+
 
 // Footer är en komponent utan props. Den skapar själv året utifrån aktuell datum/tid.
 function Footer() {
@@ -9,12 +11,19 @@ function Footer() {
     // footer är ett semantiskt HTML-element för sidinformation längst ned.
     // id="kontakt" är tänkt att vara målet för länken href="#kontakt" i Navbar.
     <footer className="footer" id="kontakt">
+
+      <ul className="om-mig-listaa">
+        <li><a href="/">Hem </a></li>
+        <li><Link to="/om-mig"> Om mig</Link></li>
+      </ul>     
+      
       {/*id-värdet måste matcha länkmålet exakt: href="#kontakt" söker efter id="kontakt". 
       Om de inte matchar hittar webbläsaren inget mål att hoppa till. */}
       <p>Kontakt: donikamehmeti@pm.me</p>
       {/* Klammersyntaxen infogar JavaScript-variabeln år i JSX-texten. */}
       <p>© {år} Donika Mehmeti</p>
       <p>Gjord med React ❤️</p>
+
     </footer>
   );
 }
