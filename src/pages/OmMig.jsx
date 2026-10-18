@@ -12,7 +12,7 @@ function OmMig() {
     till ett HTML-element, men ett fragment kan inte ha ett id och är därför
     inte lämpligt när sektionen ska vara ett länkmål. */
     
-   <section id="om-mig">
+   <section id="om-mig" className="om-mig">
       <img
         className="om-mig-bild" 
         src={donikaBild} // src anger bildens adress. Här används den importerade bilden donikaBild.

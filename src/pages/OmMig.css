@@ -1,17 +1,25 @@
 .om-mig {
   display: grid;
-  grid-template-columns: 1fr 1fr ;   /* bild till vänster, text till höger */
-  align-items: center;              /* texten hamnar mitt för bilden */
-  gap: 50px;
-  padding: 64px 32px;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 0.75fr);
+  grid-template-areas: "content image";
+  align-items: center;
+  gap: clamp(32px, 6vw, 80px);
+  padding: 64px clamp(32px, 8vw, 120px);
   text-align: left;
   background-color: #ffffff;
 }
 
+.om-mig-innehall {
+  grid-area: content;
+}
+
 .om-mig-bild {
+  grid-area: image;
   display: block;
-  width: 50%;
-  height: auto;                     /* bilden behåller sin form */
+  justify-self: end;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
   border-radius: 15px;
 }
 
@@ -51,11 +59,19 @@
   font-weight: 600;
 }
 
-/* På mobil hamnar texten under bilden */
+/* På mindre skärmar staplas innehållet med texten först. */
 @media (max-width: 800px) {
   .om-mig {
     grid-template-columns: 1fr;
+    grid-template-areas:
+      "content"
+      "image";
     gap: 32px;
+  }
+
+  .om-mig-bild {
+    justify-self: center;
+    width: min(70%, 300px);
   }
 }
 
@@ -64,40 +80,3 @@
     padding: 40px 20px;
   }
 }
-
-/* CSS styr utseende och layout; den skickar inte props till komponenter.
-   Klassnamnen här matchar className-värdena som OmMig.jsx sätter på elementen. */
-/* .h1 väljer element med className="h1"; det är inte samma som selektorn h1. 
-.h1 {
-  color: rgb(131, 29, 138);
-  font-size: 40px;
-  font-family: Arial;
-}
-
-/* .p är en klassväljare och gäller element med className="p".
-   Den här klassen ändrar textens utseende, inte dess innehåll. 
-.p {
-  color: rgb(180, 40, 65);
-  font-size: 20px;
-  font-family: Arial;
-  font-style: italic;
-}
-
-/* Bildklass som används av img-elementet i OmMig.jsx via className="om-mig-bild".
-   Ändringar här påverkar bildens utseende, inte bildens src eller alt-värde. 
-.om-mig-bild {
-  /* grid-template-columns används på en grid-behållare; på själva img-elementet
-     ger den här egenskapen ingen effekt om elementet inte är en grid-behållare. 
-  grid-template-columns: 1fr 1fr 1fr;
-  padding: 20px;
-  /* img är här ett flex-behållarelement, men har inget eget innehåll att flexa. 
-  display: flex;
-  /* Dessa flex-alignment-regler påverkar främst flex-barn; img saknar sådana barn. 
-  justify-content: flex-end;
-  align-items: center;
-  /* Fast bredd och automatisk höjd bevarar normalt bildens proportioner. 
-  width: 200px;
-  height: auto;
-  border-radius: 50%;
-  margin-bottom: 20px;
-}*/
