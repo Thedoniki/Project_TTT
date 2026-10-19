@@ -1,25 +1,42 @@
 /* Klassväljaren .footer matchar className="footer" i Footer.jsx.
    Klassnamnet är självvalt; punkt används i CSS för att välja en klass. */
 .footer {
+    font-family: "Times New Roman", Times, serif; /* Välj ett typsnitt som är lättläst */
   /* Centrerar text horisontellt inuti sidfoten. */
   text-align: center;
   /* Inre luft: 32px ovan/under och 20px vänster/höger. */
-  padding: 32px 20px;
+  padding: 10px 0px;/* Yttre luft: 20px ovan/under och 0px vänster/höger. */
   /* Bakgrundsfärg och textfärg påverkar innehållet i sidfoten. */
-  background-color: #1e293b;
+  background-color: #607898;
   color: white;
 }
 .om-mig-listaa {
   display: flex;                         /* lägger etiketterna på en rad */
-  justify-content: flex-start; /* justerar etiketterna till vänster */
+  justify-content: center; /* justerar etiketterna till vänster */
+  align-items: center;                   /* centrerar etiketterna vertikalt */
   flex-wrap: wrap;                  /* på mobil hamnar de på flera rader */
-  gap: 12px;
-  padding: 0;
-  margin: 0;
+  gap: 2px; /* mellanrum mellan etiketterna */
+  padding: 0;                            /* tar bort inre luft */
+  margin: 0;                             /* tar bort yttre luft */
   list-style: none;                 /* tar bort pricken framför */
 }
 .om-mig-listaa li {
-  padding: 8px 20px;
-  color: #e3dede;
-  font-weight: 600;
+  padding: 3px 5px; /* inre luft: 8px ovan/under och 5px vänster/höger */
+  color: #e3dede;/* textfärg */
+}
+
+/* Länkar i listan får en annan färg när man hovrar över dem. */
+.om-mig-listaa a:hover {
+  color: #7e2b60; /* ändrar textfärg vid hover */
+}
+.om-mig-listaa a {
+
+  color: #f1eeee; /* Din textfärg ligger nu direkt på länken */
+  font-weight: 650;
+  text-decoration: none;
+  transition: color 0.3s ease; /* Gör färgskiftet mjukt */
+  /* Gör texten tätare */
+  letter-spacing: 0.5px; /* Justera siffran för att ändra tätheten */
+/* Minskar avståndet mellan orden */
+  word-spacing: -2px; /* Justera siffran tills det ser bra ut */
 }

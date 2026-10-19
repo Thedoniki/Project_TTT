@@ -1,0 +1,18 @@
+.kontakt { /* Kontakt-sektionen är en grid med två kolumner: text till vänster och formulär till höger. */
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* text till vänster, formulär till höger */
+  gap: 48px;
+}
+
+.kontakt-form { /* Formuläret är en flexbox med fälten under varandra. */
+  display: flex;
+  flex-direction: column; /* fälten under varandra */
+  gap: 8px;
+  padding-right: 24px; /* lite avstånd från texten till vänster */
+}
+
+@media (max-width: 800px) { /* När skärmen är smalare än 800px, gör gridet till en kolumn istället för två. */
+  .kontakt {
+    grid-template-columns: 1fr; /* bara en kolumn */
+  }
+}

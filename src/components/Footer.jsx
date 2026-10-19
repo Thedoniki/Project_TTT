@@ -15,7 +15,7 @@ function Footer() {
       <ul className="om-mig-listaa">
         <li><a href="/">Hem </a></li>
         <li><Link to="/om-mig"> Om mig</Link></li>
-      </ul>     
+        <li><Link to="/kontakt"> Kontakt</Link></li>      </ul>     
       
       {/*id-värdet måste matcha länkmålet exakt: href="#kontakt" söker efter id="kontakt". 
       Om de inte matchar hittar webbläsaren inget mål att hoppa till. */}
