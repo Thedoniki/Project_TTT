@@ -1,0 +1,76 @@
+<mxfile host="app.diagrams.net" modified="2026-10-21T17:15:00.000Z" agent="Copilot" version="24.7.17">
+  <diagram id="raknare-arkitektur" name="Applikationens arkitektur">
+    <mxGraphModel dx="1300" dy="860" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1350" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="Arkitektur – Min portfolio" style="text;html=1;align=center;verticalAlign=middle;fontSize=24;fontStyle=1;fontColor=#1f2937;" vertex="1" parent="1">
+          <mxGeometry x="400" y="25" width="500" height="45" as="geometry"/>
+        </mxCell>
+        <mxCell id="htmlRoot" value="index.html&lt;br&gt;&lt;b&gt;#root&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="50" y="130" width="170" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="main" value="src/main.jsx&lt;br&gt;createRoot + BrowserRouter" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="290" y="125" width="210" height="85" as="geometry"/>
+        </mxCell>
+        <mxCell id="app" value="src/App.jsx&lt;br&gt;App (layout + routes)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="600" y="130" width="210" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="navbar" value="Navbar&lt;br&gt;gemensam navigering" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="100" y="310" width="175" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="routes" value="React Router&lt;br&gt;Routes" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="620" y="310" width="175" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="footer" value="Footer&lt;br&gt;gemensam sidfot" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="310" width="175" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="home" value="Hem&lt;br&gt;/" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="480" y="485" width="150" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="about" value="OmMig&lt;br&gt;/om-mig" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="670" y="485" width="150" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="contact" value="Kontakt&lt;br&gt;/kontakt" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="860" y="485" width="150" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="homeContent" value="Hem renderar&lt;br&gt;Header · Hero · Projekt" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="480" y="640" width="150" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="counterBoundary" value="Fristående komponent – används inte av App eller sidorna ännu" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;dashPattern=8 4;fillColor=#ffffff;strokeColor=#999999;fontSize=14;fontStyle=1;verticalAlign=top;spacingTop=12;" vertex="1" parent="1">
+          <mxGeometry x="1010" y="455" width="300" height="285" as="geometry"/>
+        </mxCell>
+        <mxCell id="counter" value="Raknare.jsx&lt;br&gt;useState(0) håller värdet&lt;br&gt;&lt;br&gt;Knappar → uppdaterar state&lt;br&gt;span ← visar värdet" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="535" width="220" height="145" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#6c8ebf;strokeWidth=2;endArrow=block;" edge="1" parent="1" source="htmlRoot" target="main">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#6c8ebf;strokeWidth=2;endArrow=block;" edge="1" parent="1" source="main" target="app">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#82b366;strokeWidth=2;endArrow=block;exitX=0.1;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="app" target="navbar">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#d6b656;strokeWidth=2;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="app" target="routes">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#82b366;strokeWidth=2;endArrow=block;exitX=0.9;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="app" target="footer">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e6" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#d6b656;strokeWidth=2;endArrow=block;exitX=0.1;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="routes" target="home">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e7" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#d6b656;strokeWidth=2;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="routes" target="about">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e8" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#d6b656;strokeWidth=2;endArrow=block;exitX=0.9;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="routes" target="contact">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e9" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#82b366;strokeWidth=2;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="home" target="homeContent">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

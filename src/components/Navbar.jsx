@@ -29,8 +29,14 @@ function Navbar() {
       <Link to="/om-mig">Om mig</Link>
 
 
-        <a href="#kontakt">Kontakt</a>
-        {/* kontakt betyder att webbläsaren ska leta efter ett HTML-element på samma sida med id="kontakt". Det är en vanlig HTML-funktion, inte något särskilt React gör.  */}
+
+      {/* Förut – hoppar till en sektion på samma sida */}
+      {/* <a href="#kontakt">Kontakt</a> */}
+      {/* // Nu – byter till en annan sida */} 
+      <Link to="/kontakt">Kontakt</Link>
+      
+        {/* 
+         kontakt betyder att webbläsaren ska leta efter ett HTML-element på samma sida med id="kontakt". Det är en vanlig HTML-funktion, inte något särskilt React gör.  */}
       </div>
     </nav>
   );

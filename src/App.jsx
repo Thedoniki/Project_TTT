@@ -9,6 +9,7 @@ import Footer from './components/Footer'; // Importen gör komponenten tillgäng
 import { Routes, Route } from 'react-router-dom';
 import Hem from './pages/Hem';
 import OmMig from './pages/OmMig';
+import Kontakt from './pages/Kontakt'; // Importerar Kontakt-komponenten från filen Kontakt.jsx i pages-mappen. Detta gör att komponenten kan användas i App-komponenten och visas när användaren navigerar till /kontakt.
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Hem />} />
         <Route path="/om-mig" element={<OmMig />} />
+        <Route path="/kontakt" element={<Kontakt />} />
       </Routes>
 
       {/*

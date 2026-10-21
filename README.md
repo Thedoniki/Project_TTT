@@ -4,6 +4,11 @@ En personlig portfoliosida byggd med React. Här presenterar jag mig själv, min
 
 **Skapad av:** Donika Mehmeti
 
+## Diagram
+
+- [Räknarens flöde (PNG)](./docs/diagrams/Raknare-flode.drawio.png) · [redigerbar draw.io-fil](./docs/diagrams/Raknare-flode.drawio)
+- [Applikationens arkitektur (PNG)](./docs/diagrams/Raknare-arkitektur.drawio.png) · [redigerbar draw.io-fil](./docs/diagrams/Raknare-arkitektur.drawio)
+
 # Project_TTT
 
 Duplicate from min-sida in documents repo. Code til 15Okt 2026.
