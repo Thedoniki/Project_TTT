@@ -57,7 +57,7 @@
 	padding: 10px 18px;
 	border: 1px solid #4d5677;
 	border-radius: 14px;
-	background: linear-gradient(135deg, #737da1, #596383);
+	background: linear-gradient(135deg, #b5b7c0, #596383);
 	color: #fcf6fa;
 	font-family: Arial, sans-serif;
 	font-size: clamp(16px, 1.8vw, 18px);
@@ -82,7 +82,7 @@
 /* Fokusmarkeringen gör knapparna tydliga när användaren navigerar med tangentbord. */
 .projekt-beskrivning-innehåll-btn:focus-visible,
 .projekt-beskrivning-github-btn:focus-visible {
-	outline: 2px solid #656f93;
+	outline: 2px solid #dddfe5;
 	outline-offset: 4px;
 }
 
@@ -100,10 +100,10 @@
 
 /* Klassen läggs till från React när användaren väljer att visa mer information. */
 .projekt-beskrivning-innehåll.är-öppet {
-	background-color: #a09ba2;
+	background-color: #cac7cc;
 	color: #342e3c;
 	font-family: "Times New Roman", Times, serif;
-	font-weight: 450;
+	font-weight: 550;
 	font-size: 17px;
 	text-align: justify;
 }
