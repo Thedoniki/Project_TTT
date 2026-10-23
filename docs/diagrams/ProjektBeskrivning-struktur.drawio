@@ -1,0 +1,79 @@
+<mxfile host="app.diagrams.net" type="device">
+  <diagram id="projekt-struktur" name="Hela projektet - arkitektur">
+    <mxGraphModel dx="1500" dy="1150" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="MIN SIDA — PROJEKTARKITEKTUR" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=26;fontStyle=1;fontColor=#261F3A;" vertex="1" parent="1">
+          <mxGeometry x="350" y="25" width="700" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="sub-title" value="React + Vite • React Router • komponentbaserad portfolio" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=15;fontColor=#656F93;" vertex="1" parent="1">
+          <mxGeometry x="350" y="75" width="700" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="html" value="index.html&lt;br&gt;React-monteringspunkt" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#666666;fontColor=#261F3A;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="60" y="150" width="210" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="main" value="src/main.jsx&lt;br&gt;Läser global CSS&lt;br&gt;Monterar React-appen" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;strokeWidth=2;fontColor=#261F3A;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="340" y="150" width="230" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="browser-router" value="BrowserRouter&lt;br&gt;Hanterar webbadress och navigation" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1D5E7;strokeColor=#9673A6;strokeWidth=2;fontColor=#261F3A;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="640" y="150" width="250" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="app" value="src/App.jsx&lt;br&gt;Gemensamt applager" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;strokeWidth=2;fontColor=#261F3A;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="970" y="150" width="230" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="e-html-main" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#6C8EBF;strokeWidth=2;endArrow=block;" edge="1" parent="1" source="html" target="main"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e-main-router" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#6C8EBF;strokeWidth=2;endArrow=block;" edge="1" parent="1" source="main" target="browser-router"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e-router-app" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#6C8EBF;strokeWidth=2;endArrow=block;" edge="1" parent="1" source="browser-router" target="app"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="shared-shell" value="Gemensamt applager&lt;br&gt;Navbar + Routes + Footer&lt;br&gt;Route väljs utifrån URL" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EDE9F6;strokeColor=#656F93;strokeWidth=2;fontColor=#261F3A;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="520" y="275" width="320" height="85" as="geometry"/>
+        </mxCell>
+        <mxCell id="e-app-shell" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#656F93;strokeWidth=2;endArrow=block;" edge="1" parent="1" source="app" target="shared-shell"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="home" value="Hem&lt;br&gt;route: /" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;strokeWidth=2;fontColor=#261F3A;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="50" y="440" width="250" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="about" value="OmMig&lt;br&gt;route: /om-mig" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;strokeWidth=2;fontColor=#261F3A;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="370" y="440" width="250" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="contact" value="Kontakt&lt;br&gt;route: /kontakt" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;strokeWidth=2;fontColor=#261F3A;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="690" y="440" width="250" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="project-page" value="ProjektBeskrivning&lt;br&gt;route: /projekt-beskrivning-sida" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;strokeWidth=2;fontColor=#261F3A;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="1010" y="440" width="300" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="e-shell-home" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#82B366;strokeWidth=2;endArrow=block;" edge="1" parent="1" source="shared-shell" target="home"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e-shell-about" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#82B366;strokeWidth=2;endArrow=block;" edge="1" parent="1" source="shared-shell" target="about"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e-shell-contact" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#82B366;strokeWidth=2;endArrow=block;" edge="1" parent="1" source="shared-shell" target="contact"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e-shell-project" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#82B366;strokeWidth=2;endArrow=block;" edge="1" parent="1" source="shared-shell" target="project-page"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="home-components" value="Header → Hero → Projekt → 3 × ProjektKort&lt;br&gt;Projektkort länkar till GitHub eller BookStore-sidan" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3EEF5;strokeColor=#9673A6;fontColor=#261F3A;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="40" y="565" width="290" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="about-components" value="Toggle&lt;br&gt;Visa/dölj presentationstext" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3EEF5;strokeColor=#9673A6;fontColor=#261F3A;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="370" y="565" width="250" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="contact-components" value="Kontaktformulär&lt;br&gt;Namn, e-post, meddelande&lt;br&gt;Obs: ingen submit-handler i nuläget" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;fontColor=#261F3A;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="690" y="565" width="250" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="project-components" value="Bild + introduktion&lt;br&gt;Visa mer/mindre → projekttext&lt;br&gt;GitHub-länk öppnas i ny flik" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3EEF5;strokeColor=#9673A6;fontColor=#261F3A;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="1010" y="565" width="300" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="e-home-components" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#9673A6;endArrow=block;" edge="1" parent="1" source="home" target="home-components"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e-about-components" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#9673A6;endArrow=block;" edge="1" parent="1" source="about" target="about-components"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e-contact-components" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#D6B656;endArrow=block;" edge="1" parent="1" source="contact" target="contact-components"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e-project-components" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#9673A6;endArrow=block;" edge="1" parent="1" source="project-page" target="project-components"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="styles" value="CSS&lt;br&gt;index.css + CSS för sidor och komponenter" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EDE9F6;strokeColor=#656F93;fontColor=#261F3A;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="200" y="760" width="400" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="assets" value="src/assets&lt;br&gt;Hero- och projektbilder" style="shape=cylinder3;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;fontColor=#261F3A;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="790" y="760" width="300" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="unused" value="Finns i källkoden men renderas inte av nuvarande routes:&lt;br&gt;Raknare • Intressen • Valkommen • Halsning" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;fillColor=#F5F5F5;strokeColor=#999999;fontColor=#555555;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="300" y="900" width="700" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="note" value="Heldragen pil = renderings-/navigeringskoppling • Streckad komponent = finns men används inte på de aktiva sidorna" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=12;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="220" y="1010" width="860" height="35" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

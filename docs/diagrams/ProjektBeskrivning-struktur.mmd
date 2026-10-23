@@ -1,0 +1,74 @@
+flowchart LR
+    HTML["index.html"]
+    Main["src/main.jsx"]
+    Router["BrowserRouter"]
+    App["src/App.jsx<br/>App shell"]
+
+    HTML --> Main --> Router --> App
+
+    subgraph Shell["Delar som visas på alla routes"]
+        Navbar["Navbar"]
+        Routes{"React Router<br/>väljer route"}
+        Footer["Footer"]
+    end
+
+    App --> Navbar
+    App --> Routes
+    App --> Footer
+
+    subgraph Pages["Routes och sidkomponenter"]
+        Home["/ — Hem"]
+        About["/om-mig — OmMig"]
+        Contact["/kontakt — Kontakt"]
+        ProjectPage["/projekt-beskrivning-sida<br/>ProjektBeskrivning"]
+    end
+
+    Routes --> Home
+    Routes --> About
+    Routes --> Contact
+    Routes --> ProjectPage
+
+    subgraph HomeComponents["Hem-sidans komponenter"]
+        Header["Header"]
+        Hero["Hero"]
+        Projects["Projekt"]
+        Cards["ProjektKort × 3"]
+        Header --> Hero --> Projects --> Cards
+    end
+    Home --> Header
+
+    subgraph AboutComponents["Om mig"]
+        Toggle["Toggle<br/>Visa/dölj text"]
+    end
+    About --> Toggle
+
+    subgraph ProjectComponents["BookStore-projektsida"]
+        ProjectImage["Projektbild"]
+        Summary["Introduktion"]
+        More["Visa mer / Visa mindre"]
+        Details["Beskrivning"]
+        GitHub["GitHub-länk"]
+        ProjectImage --> Summary --> More --> Details
+        Summary --> GitHub
+    end
+    ProjectPage --> ProjectImage
+
+    subgraph SharedResources["CSS och resurser"]
+        GlobalCSS["index.css"]
+        PageCSS["Sido- och komponent-CSS"]
+        Assets["src/assets/*"]
+    end
+    Main -.-> GlobalCSS
+    Header -.-> PageCSS
+    Hero -.-> PageCSS
+    Projects -.-> PageCSS
+    About -.-> PageCSS
+    Contact -.-> PageCSS
+    ProjectPage -.-> PageCSS
+    Cards -.-> Assets
+    Hero -.-> Assets
+    ProjectImage -.-> Assets
+
+    subgraph NotRendered["Komponenter som finns men inte renderas i nuvarande routes"]
+        Unused["Raknare · Intressen · Valkommen · Halsning"]
+    end

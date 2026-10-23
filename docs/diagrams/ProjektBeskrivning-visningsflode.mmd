@@ -1,0 +1,33 @@
+flowchart TD
+    Start(["Besökaren öppnar webbplatsen"])
+    Init["index.html startar React via main.jsx"]
+    Router["BrowserRouter och App"]
+    Shell["Visa Navbar och Footer<br/>på alla routes"]
+    Choose{"Vilken route?"}
+
+    Start --> Init --> Router --> Shell --> Choose
+
+    Choose -->|/| Home["Hem-sidan<br/>Header → Hero → Projektkort"]
+    Choose -->|/om-mig| About["Om mig-sidan"]
+    Choose -->|/kontakt| Contact["Kontakt-sidan"]
+    Choose -->|/projekt-beskrivning-sida| Detail["BookStore-projektsidan"]
+
+    Home --> Cards{"Välj ett projektkort"}
+    Cards -->|BookStore| Detail
+    Cards -->|Övriga projekt| External["Öppna GitHub-länk"]
+
+    About --> Toggle{"Klicka Visa mer?"}
+    Toggle -->|Ja| AboutText["Om-mig-text visas<br/>knappen blir Visa mindre"]
+    AboutText -->|Klicka igen| About["Texten döljs"]
+    Toggle -->|Nej| About
+
+    Detail --> More{"Klicka Visa mer?"}
+    More -->|Ja| Explanation["Visa text om SOLID<br/>och objektorienterade mönster"]
+    Explanation -->|Klicka Visa mindre| Detail
+    More -->|Nej| Detail
+    Detail --> Repo["Klicka på GitHub-knappen"]
+    Repo --> NewTab["BookStore-repot öppnas i ny flik"]
+
+    Contact --> Form["Fyll i namn, e-post<br/>och meddelande"]
+    Form --> Submit["Skicka formuläret"]
+    Submit --> NoHandler["Formuläret saknar onSubmit-handler<br/>eller backend i nuvarande kod"]
