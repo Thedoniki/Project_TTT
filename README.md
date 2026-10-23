@@ -37,17 +37,7 @@ If you are developing a production application, we recommend using TypeScript wi
 Repo: https://github.com/Thedoniki/Project_TTT
 Uppdaterad mot `main` vid commit `6e06f5b` (Merge pull request #5), 23 oktober 2026.
 
-## Vad som ändrats sedan förra versionen (a668d29 → 6e06f5b)
 
-- `Kontakt.jsx` skrevs om: formuläret har nu **fem `useState`** (`namn`, `email`, `meddelande`, `skickat`, `fel`), en `handleSubmit` med validering och ett tackmeddelande.
-- `ProjektBeskrivning.css`: bara färg- och vikt-justeringar.
-- Nya diagram i `docs/diagrams/`: `ProjektBeskrivning-struktur` och `ProjektBeskrivning-visningsflode` (.mmd, .drawio, .png).
-- `App.jsx`, `main.jsx`, `Hem.jsx` och alla komponenter i `src/components/` är **oförändrade**.
-
-> **Om filnamnen:** Projektet har inga filer som heter `app.js`, `index.jsx` eller `userState`.
-> - `app.js` → `src/App.jsx` (sidramverk och routing)
-> - `index.jsx` → `src/main.jsx` (startpunkt, kopplar React till `<div id="root">`)
-> - `userState` → finns inte som fil. Det finns ingen global state, context eller Redux. Allt state är lokalt med `useState` (avsnitt 4).
 
 ---
 
@@ -230,3 +220,14 @@ sequenceDiagram
     R->>A: URL ändras, ingen omladdning
     A->>S: Ny sida ersätter den gamla (gammal state försvinner)
 ```
+## Vad som ändrats sedan förra versionen (a668d29 → 6e06f5b)
+
+- `Kontakt.jsx` skrevs om: formuläret har nu **fem `useState`** (`namn`, `email`, `meddelande`, `skickat`, `fel`), en `handleSubmit` med validering och ett tackmeddelande.
+- `ProjektBeskrivning.css`: bara färg- och vikt-justeringar.
+- Nya diagram i `docs/diagrams/`: `ProjektBeskrivning-struktur` och `ProjektBeskrivning-visningsflode` (.mmd, .drawio, .png).
+- `App.jsx`, `main.jsx`, `Hem.jsx` och alla komponenter i `src/components/` är **oförändrade**.
+
+> **Om filnamnen:** Projektet har inga filer som heter `app.js`, `index.jsx` eller `userState`.
+> - `app.js` → `src/App.jsx` (sidramverk och routing)
+> - `index.jsx` → `src/main.jsx` (startpunkt, kopplar React till `<div id="root">`)
+> - `userState` → finns inte som fil. Det finns ingen global state, context eller Redux. Allt state är lokalt med `useState` (avsnitt 4).
