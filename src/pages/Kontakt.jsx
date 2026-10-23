@@ -1,6 +1,8 @@
 import "./Kontakt.css";
 import { useState } from "react";
 
+// Kommentarer och info: /Users/donika/.codex-notes/kontakt.jsx-info.md
+
 {
 	/* Kontakt är en funktionskomponent som renderar kontaktformuläret. Denna komponent används i App.jsx för att visa kontaktsektionen på sidan. 
     
@@ -14,17 +16,30 @@ function Kontakt() {
 	const [email, setEmail] = useState("");
 	const [meddelande, setMeddelande] = useState("");
 	const [skickat, setSkickat] = useState(false);
+	const [fel, setFel] = useState("");
 
 	function handleSubmit(e) {
 		e.preventDefault(); // stoppa sidomladdning
 		console.log(namn, email, meddelande);
-		setSkickat(true); // visa tackmeddelande
+
+		// Kontrollera att fälten inte är tomma innan submit
+		if (!namn.trim() || !email.trim() || !meddelande.trim()) {
+			setFel("Fyll i alla fält.");
+			return;
+		}
+
 		setEmail(""); // rensa fälten
+		//Kontrollera att email innehåller @
+		if (!email.includes("@")) {
+			setFel("E-postadressen måste innehålla @.");
+			return;
+		}
 		setMeddelande("");
+		setFel("");
+		setSkickat(true); // visa tackmeddelande
 	}
 
-  if (skickat) return <p>Tack för ditt meddelande, {namn}!</p>;
-
+	if (skickat) return <p>Tack för ditt meddelande, {namn}!</p>;
 
 	return (
 		<section id="kontakt" className="kontakt">
@@ -37,26 +52,14 @@ function Kontakt() {
 			{/* Höger kolumn: formuläret */}
 			<form onSubmit={handleSubmit}>
 				<label htmlFor="namn">Namn</label>
-				{/* <input type="text" id="namn" name="namn" placeholder="Ditt namn" /> */}
-
 				<div>
 					<input
 						value={namn}
 						onChange={(e) => setNamn(e.target.value)}
 						placeholder="Skriv ditt namn"
 					/>
-					{/* <p>Du skriver: {namn}</p> */}
 				</div>
-
 				<label htmlFor="epost">E-post</label>
-				{/** label behövs för skärmläsaren för kontrollerad input. */}
-				{/* <input
-					type="email"
-					id="epost"
-					name="epost"
-					placeholder="namn@exempel.se"
-				/> */}
-
 				<div>
 					{" "}
 					{/** Detta kallas en kontollerad input */}
@@ -65,22 +68,20 @@ function Kontakt() {
 						onChange={(e) => setEmail(e.target.value)}
 						placeholder="Ange email"
 					/>
-					{/* <p>Du skriver: {email}</p> */}
+					<p>Du skriver: {email}</p>
 				</div>
-
 				<label htmlFor="meddelande">Meddelande</label>
-				{/* <textarea id="meddelande" name="meddelande" rows="5" /> */}
-
 				<div>
 					<input
 						value={meddelande}
 						onChange={(e) => setMeddelande(e.target.value)}
 						placeholder="Skriv ditt meddelande"
 					/>
-					{/* <p>Du skriver: {meddelande}</p> */}
 				</div>
-
-				<button type="submit">Skicka</button>
+				{/* Visa ett felmeddelande om validering misslyckas */}
+				{fel && <p>{fel}</p>}
+				{/* // Rätt: */}
+				<button type="submit">Skicka</button>{" "}
 			</form>
 		</section>
 	);

@@ -1,3 +1,11 @@
+
+/* 
+--Att göra--
+Styla tackmeddelandet med en grön färg
+Styla felmeddelandet med en röd färg
+Extrauppgift: Dölj formuläret helt när skickat är true, visa bara tackmeddelandet 
+*/
+
 .kontakt { /* Kontakt-sektionen är en grid med två kolumner: text till vänster och formulär till höger. */
   display: grid;
   grid-template-columns: 1fr 1fr; /* text till vänster, formulär till höger */
