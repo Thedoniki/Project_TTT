@@ -19,34 +19,47 @@ function Kontakt() {
 	const [meddelande, setMeddelande] = useState("");
 	const [skickat, setSkickat] = useState(false);
 	const [fel, setFel] = useState("");
-  const navigate = useNavigate();
+	const navigate = useNavigate();
+	const [skickar, setSkickar] = useState(false);
 
-
-	function handleSubmit(e) {
+	async function handleSubmit(e) {
 		e.preventDefault();
 		setFel("");
 
-		// Trim gör att ett fält med enbart mellanslag också räknas som tomt.
 		if (!namn.trim() || !email.trim() || !meddelande.trim()) {
 			setFel("Fyll i alla fält.");
 			return;
 		}
 
-		// Kontrollera e-post först efter att alla obligatoriska värden finns.
 		if (!email.trim().includes("@")) {
-			setFel("E-postadressen måste innehålla @.");
+			setFel("E-postadressen ser inte rätt ut.");
 			return;
 		}
 
-		// Tidigare rensades e-post före valideringen: setEmail("");
-		// Rensa först när hela formuläret har passerat valideringen.
-		setEmail("");
-		setMeddelande("");
-		setFel("");
-		setSkickat(true);
+		setSkickar(true);
+
+		try {
+			const svar = await fetch("https://formspree.io/f/mpppdkbr", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+					Accept: "application/json",
+				},
+				body: JSON.stringify({ namn, email, meddelande }),
+			});
+
+			if (svar.ok) {
+				setSkickat(true);
+			} else {
+				setFel("Något gick fel. Försök igen om en stund.");
+			}
+		} catch {
+			setFel("Kunde inte skicka. Kolla din internetanslutning.");
+		} finally {
+			setSkickar(false);
+		}
 	}
 
-	// role=status låter hjälpmedel meddela att formuläret har skickats.
 	if (skickat) {
 		return (
 			<p className="kontakt-bekräftelse" role="status">
@@ -57,8 +70,12 @@ function Kontakt() {
 
 	return (
 		<section id="kontakt" className="kontakt">
-       <button onClick={() => navigate(-1)}>Gå tillbaka</button>     {/* som webbläsarens bakåtknapp */}
-<button onClick={() => navigate("/")}>Till startsidan</button>
+			<button type="button" onClick={() => navigate(-1)}>
+				Gå tillbaka
+			</button>
+			<button type="button" onClick={() => navigate("/")}>
+				Till startsidan
+			</button>
 			{/* Vänster kolumn: text */}
 			<div className="kontakt-info">
 				<h2>Kontakta mig</h2>
@@ -112,7 +129,9 @@ function Kontakt() {
 				</div>
 				{/* role=alert meddelar valideringsfel direkt för skärmläsare. */}
 				{fel && <p id="kontakt-fel" role="alert">{fel}</p>}
-				<button type="submit">Skicka</button>
+				<button type="submit" disabled={skickar}>
+					{skickar ? "Skickar..." : "Skicka"}
+				</button>
 			</form>
 		</section>
 	);
