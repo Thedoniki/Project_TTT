@@ -40,6 +40,10 @@
   font-weight: 600;
   text-decoration: none;
 }
+.lankar a.active {
+  font-weight: 700;
+  border-bottom: 2px solid currentColor; /* streck under aktuell sida */
+}
 
 .lankar a:hover,
 .lankar a[aria-current="page"] {
@@ -52,7 +56,48 @@
 .navbar a:focus-visible {
   outline-color: var(--color-focus);
 }
+.meny-knapp { display: none; }      /* dold på dator */
+.navbar {
+  position: relative;              /* menyn fälls ut under navbaren */
+}
 
+.meny-knapp {
+  display: none;                   /* dold på dator */
+  width: 44px;
+  height: 44px;                    /* lagom stor för en tumme */
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: #ffffff;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  .meny-knapp {
+    display: block;
+  }
+
+  .lankar {
+    display: none;                 /* dolda tills menyn öppnas */
+    position: absolute;
+    top: 100%;                     /* precis under navbaren */
+    left: 0;
+    right: 0;
+    z-index: 10;                    /* lägger sig ovanpå innehållet */
+    flex-direction: column;
+    gap: 0;
+    background-color: #ab92a2;
+  }
+
+  .lankar.oppen {
+    display: flex;
+  }
+
+  .lankar a {
+    padding: 14px 32px;             /* stora ytor att trycka på */
+  }
+}
 @media (max-width: 600px) {
   /* På smala skärmar får logotyp och länkar varsin rad. */
   .navbar {

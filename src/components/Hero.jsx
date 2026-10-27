@@ -1,5 +1,6 @@
 import './Hero.css';
 import heroBild from '../assets/hero.jpg'; // Importera bilden från assets-mappen
+import { Link } from "react-router-dom";
 
 //kommentar: Hero är en React-komponent som tar emot props från sin förälder, App. 
 // Props är ett sätt att skicka data från en komponent till en annan i React. 
@@ -26,8 +27,9 @@ function Hero({ namn }) {
                 {/* CTA:n går till projektsektionen; tidigare länktext och mål:
                 <a href="#hero-valkommen" className="hero-knapp">Lär dig mer</a>
                 */}
-                <a href="#projekt" className="hero-knapp">Se mina projekt</a>
-            </div>
+<Link className="hero-knapp" to="/projekt">
+  Se mina projekt
+</Link>            </div>
             
             {/* Bilden kommer från en import, inte från en prop. */}
             {/* alt är en textbeskrivning för tillgänglighet och visas om bilden inte kan laddas. */}

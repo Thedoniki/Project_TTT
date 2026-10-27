@@ -11,7 +11,8 @@ import Hem from "./pages/Hem";
 import OmMig from "./pages/OmMig";
 import Kontakt from "./pages/Kontakt"; // Importerar Kontakt-komponenten från filen Kontakt.jsx i pages-mappen. Detta gör att komponenten kan användas i App-komponenten och visas när användaren navigerar till /kontakt.
 import ProjektBeskrivningSida from "./pages/ProjektBeskrivning";
-
+import ProjektSida from "./pages/ProjektSida";
+import EjHittad from "./pages/EjHittad";
 function App() {
 	return (
 		// Fragmentet omsluter sidans komponenter utan att skapa ett extra HTML-element.
@@ -25,10 +26,13 @@ function App() {
           React-komponent som ska visas för respektive sökväg. Kod som skrivs utanför Routes
           syns på alla sidor eg. Navbar & Footer */}
 			<Routes>
+        <Route path="/projekt" element={<ProjektSida />} />
 				<Route path="/" element={<Hem />} />
 				<Route path="/om-mig" element={<OmMig />} />
 				<Route path="/kontakt" element={<Kontakt />} />
         <Route path="/projekt-beskrivning-sida" element={<ProjektBeskrivningSida />}/>
+        <Route path="*" element={<EjHittad />} />  {/* läggs sist */}
+
 			</Routes>
 
 			{/*
