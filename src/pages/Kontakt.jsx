@@ -1,5 +1,7 @@
 import "./Kontakt.css";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 
 // Kommentarer och info: /Users/donika/.codex-notes/kontakt.jsx-info.md
 
@@ -50,9 +52,12 @@ function Kontakt() {
 			</p>
 		);
 	}
+const navigate = useNavigate();
 
 	return (
 		<section id="kontakt" className="kontakt">
+       <button onClick={() => navigate(-1)}>Gå tillbaka</button>     {/* som webbläsarens bakåtknapp */}
+<button onClick={() => navigate("/")}>Till startsidan</button>
 			{/* Vänster kolumn: text */}
 			<div className="kontakt-info">
 				<h2>Kontakta mig</h2>

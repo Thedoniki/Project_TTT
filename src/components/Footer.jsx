@@ -16,7 +16,7 @@ function Footer() {
         {/* Hem var tidigare en vanlig <a href="/">Hem</a>-länk. */}
         <li><Link to="/">Hem</Link></li>
         <li><Link to="/om-mig"> Om mig</Link></li>
-        <li><Link to="/kontakt"> Kontakt</Link></li>      </ul>     
+        <li><Link to="/kontakt">Kontakt</Link></li>      </ul>     
 
       {/* mailto gör e-postadressen klickbar och öppnar användarens e-postprogram. */}
       <p>Kontakt: <a href="mailto:donikamehmeti@pm.me">donikamehmeti@pm.me</a></p>
