@@ -19,6 +19,8 @@ function Kontakt() {
 	const [meddelande, setMeddelande] = useState("");
 	const [skickat, setSkickat] = useState(false);
 	const [fel, setFel] = useState("");
+  const navigate = useNavigate();
+
 
 	function handleSubmit(e) {
 		e.preventDefault();
@@ -52,7 +54,6 @@ function Kontakt() {
 			</p>
 		);
 	}
-const navigate = useNavigate();
 
 	return (
 		<section id="kontakt" className="kontakt">
