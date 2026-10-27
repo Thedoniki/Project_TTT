@@ -23,7 +23,10 @@ function Hero({ namn }) {
                  <h2 id="hero-titel">Jag lär mig att bygga för webben.</h2>
                 <p className="hero-text">Välkommen till min portfolio, delar med mig det jag lär mig.</p>
 
+                {/* CTA:n går till projektsektionen; tidigare länktext och mål:
                 <a href="#hero-valkommen" className="hero-knapp">Lär dig mer</a>
+                */}
+                <a href="#projekt" className="hero-knapp">Se mina projekt</a>
             </div>
             
             {/* Bilden kommer från en import, inte från en prop. */}

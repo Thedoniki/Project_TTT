@@ -8,18 +8,18 @@ function Footer() {
   const år = new Date().getFullYear();   // årtalet just nu, t.ex. 2026
 
   return (
-    // footer är ett semantiskt HTML-element för sidinformation längst ned.
-    // id="kontakt" är tänkt att vara målet för länken href="#kontakt" i Navbar.
-    <footer className="footer" id="kontakt">
+    // Footer-id:t togs bort eftersom kontaktsektionen har samma id på kontaktsidan.
+    // Tidigare: <footer className="footer" id="kontakt">
+    <footer className="footer">
 
       <ul className="om-mig-listaa">
-        <li><a href="/">Hem </a></li>
+        {/* Hem var tidigare en vanlig <a href="/">Hem</a>-länk. */}
+        <li><Link to="/">Hem</Link></li>
         <li><Link to="/om-mig"> Om mig</Link></li>
         <li><Link to="/kontakt"> Kontakt</Link></li>      </ul>     
-      
-      {/*id-värdet måste matcha länkmålet exakt: href="#kontakt" söker efter id="kontakt". 
-      Om de inte matchar hittar webbläsaren inget mål att hoppa till. */}
-      <p>Kontakt: donikamehmeti@pm.me</p>
+
+      {/* mailto gör e-postadressen klickbar och öppnar användarens e-postprogram. */}
+      <p>Kontakt: <a href="mailto:donikamehmeti@pm.me">donikamehmeti@pm.me</a></p>
       {/* Klammersyntaxen infogar JavaScript-variabeln år i JSX-texten. */}
       <p>© {år} Donika Mehmeti</p>
       <p>Gjord med React ❤️</p>

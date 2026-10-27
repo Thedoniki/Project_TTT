@@ -1,29 +1,47 @@
+/* Tidigare hade korten tre fasta kolumner och en separat mobilregel:
+.projekt-lista { grid-template-columns: 1fr 1fr 1fr; }
+@media (max-width: 800px) { .projekt-lista { grid-template-columns: 1fr; } }
+*/
+
+/* Projektsektionen använder den ljusa globala ytan så korten får bra kontrast. */
 .projekt {
-  padding: 64px 32px;
-  background-color: #ede9f6;
+  padding: clamp(40px, 6vw, 72px) clamp(20px, 5vw, 64px);
+  background: var(--color-background);
 }
 
 .projekt h2 {
-  font-size: 32px;
-  margin: 0 0 32px;
+  max-width: var(--content-width);
+  margin: 0 auto 24px;
+  color: var(--color-text);
+  font-size: clamp(28px, 4vw, 36px);
+  line-height: 1.2;
+}
+
+.projekt-filter {
+  /* Filtren kan radbrytas på mindre skärmar. */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  max-width: var(--content-width);
+  margin: 0 auto 24px;
+}
+
+.projekt-filter button {
+  background: var(--color-surface);
+  color: var(--color-brand);
+}
+
+.projekt-filter button:hover,
+.projekt-filter button[aria-pressed="true"] {
+  background: var(--color-brand);
+  color: #ffffff;
 }
 
 .projekt-lista {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;   /* tre kort bredvid varandra */
+  /* Skapa så många kortkolumner som faktiskt ryms i tillgänglig bredd. */
+  grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr));
   gap: 24px;
-  max-width: 1200px;
-}
-
-/* På mobil hamnar korten under varandra */
-@media (max-width: 800px) {
-  .projekt-lista {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 600px) {
-  .projekt {
-    padding: 40px 20px;
-  }
+  max-width: var(--content-width);
+  margin: 0 auto;
 }
