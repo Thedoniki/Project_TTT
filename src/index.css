@@ -1,8 +1,123 @@
-/* Globala grundregler: body omsluter sidans innehåll och påverkar därför
-   alla komponenter, om inte mer specifika CSS-regler skriver över dem. */
-body {
-  /* Ta bort webbläsarens standardmarginal så layouten kan börja vid fönstrets kant. */
-  margin: 0;
-  /* Arial används som grundtypsnitt; sans-serif är reserv om Arial saknas. */
+:root {
+  /* Centraliserade färger gör det enkelt att hålla samma tema på alla sidor. */
   font-family: Arial, sans-serif;
+  color: #292438;
+  background: #f8f6fb;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+
+  --color-brand: #67204f;
+  --color-brand-hover: #4e173c;
+  --color-text: #292438;
+  --color-muted: #595365;
+  --color-background: #f8f6fb;
+  --color-surface: #ffffff;
+  --color-surface-muted: #eeeaf4;
+  --color-border: #d7d1df;
+  --color-focus: #f3b63f;
+  --content-width: 1200px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  /* Behåll grundreglerna från den tidigare body-stilen men använd temafärger. */
+  /* Tidigare: font-family: Arial, sans-serif; */
+  background: var(--color-background);
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+/* Gör att interna länkar inte hamnar precis mot överkanten när man hoppar till en sektion. */
+section[id] {
+  scroll-margin-top: 16px;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  /* 44px höjd ger en rymligare klickyta, även på touchskärmar. */
+  min-height: 44px;
+  padding: 10px 18px;
+  border: 1px solid var(--color-brand);
+  border-radius: 8px;
+  background: var(--color-brand);
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 160ms ease, border-color 160ms ease;
+}
+
+button:hover {
+  border-color: var(--color-brand-hover);
+  background: var(--color-brand-hover);
+}
+
+/* Räknaren får ett eget område som följer samma färgtema som övriga sektioner. */
+.raknare-sektion {
+  padding: clamp(32px, 5vw, 56px) 20px;
+  background: var(--color-surface-muted);
+  text-align: center;
+}
+
+.raknare-sektion h2 {
+  margin: 0 0 16px;
+  color: var(--color-text);
+  font-size: clamp(24px, 3vw, 30px);
+}
+
+.raknare {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.raknare output {
+  /* Siffrorna håller samma bredd när värdet ändras. */
+  min-width: 3ch;
+  color: var(--color-text);
+  font-size: 24px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  /* Tydlig kontrast gör det lättare att följa tangentbordsfokus. */
+  outline: 3px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: #d9c4d5;
+  color: var(--color-text);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Följ användarens operativsystemsinställning för minskad rörelse. */
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
 }

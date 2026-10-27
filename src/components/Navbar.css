@@ -1,34 +1,71 @@
-/* .navbar kopplas till <nav className="navbar"> i Navbar.jsx. */
+/* Tidigare menybakgrund:
+.navbar { background-color: #656f93ba; padding: 16px 32px; }
+*/
+
+/* Menyn använder nu samma mörka accentfärg som knappar och sidfot. */
 .navbar {
-  display: flex;                    /* lägger logo och länkar på en rad */
-  justify-content: space-between;   /* logo till vänster, länkar till höger */
-  /* align-items centrerar flex-barnen längs den lodräta axeln. */
+  position: relative;
+  z-index: 1;
+  display: flex;
   align-items: center;
-  /* Inre luft: 16px lodrätt och 32px vågrätt. */
-  padding: 16px 32px;
-  background-color: #656f93ba;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 12px clamp(20px, 5vw, 64px);
+  background: var(--color-brand);
+  color: #ffffff;
 }
 
-/* .logo väljer span-elementet med className="logo". */
 .logo {
-  color: white;
+  color: inherit;
   font-size: 20px;
-  font-weight: bold;
+  font-weight: 700;
+  text-decoration: none;
 }
 
-/* .lankar väljer länkarnas föräldra-div och gör länkarna till flex-barn. */
 .lankar {
   display: flex;
-  gap: 24px;                        /* avstånd mellan länkarna */
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
 }
 
-/* Mellanslaget betyder att regeln gäller a-element inuti .lankar. */
 .lankar a {
-  color: white;
-  text-decoration: none;            /* tar bort understrykningen */
+  /* En stor minsta höjd gör länkarna lättare att trycka på. */
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 6px;
+  color: #ffffff;
+  font-weight: 600;
+  text-decoration: none;
 }
 
-/* :hover är ett tillstånd: regeln används när pekaren ligger över länken. */
-.lankar a:hover {
+.lankar a:hover,
+.lankar a[aria-current="page"] {
+  /* Visa både hover och aktuell sida tydligt. */
+  background: var(--color-brand-hover);
   text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.navbar a:focus-visible {
+  outline-color: var(--color-focus);
+}
+
+@media (max-width: 600px) {
+  /* På smala skärmar får logotyp och länkar varsin rad. */
+  .navbar {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .lankar {
+    gap: 2px;
+  }
+
+  .lankar a {
+    padding-inline: 8px;
+  }
 }

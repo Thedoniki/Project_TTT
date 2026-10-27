@@ -1,26 +1,95 @@
-
-/* 
---Att göra--
-Styla tackmeddelandet med en grön färg
-Styla felmeddelandet med en röd färg
-Extrauppgift: Dölj formuläret helt när skickat är true, visa bara tackmeddelandet 
+/* Tidigare formuläret hade två lika breda spalter och ingen tydlig fältpanel.
+.kontakt { grid-template-columns: 1fr 1fr; gap: 48px; }
+.kontakt-form { gap: 8px; padding-right: 24px; }
 */
 
-.kontakt { /* Kontakt-sektionen är en grid med två kolumner: text till vänster och formulär till höger. */
+/* Kontaktinformationen och formuläret får proportioner som passar innehållet. */
+.kontakt {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* text till vänster, formulär till höger */
-  gap: 48px;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  align-items: start;
+  gap: clamp(32px, 6vw, 72px);
+  max-width: 1100px;
+  min-height: 60vh;
+  margin: 0 auto;
+  padding: clamp(40px, 7vw, 80px) clamp(20px, 5vw, 48px);
 }
 
-.kontakt-form { /* Formuläret är en flexbox med fälten under varandra. */
+.kontakt h2 {
+  margin: 0 0 12px;
+  color: var(--color-text);
+  font-size: clamp(28px, 4vw, 36px);
+  line-height: 1.2;
+}
+
+.kontakt-text {
+  max-width: 42ch;
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 18px;
+}
+
+.kontakt form {
+  /* Panelen gör formuläret visuellt lätt att hitta. */
   display: flex;
-  flex-direction: column; /* fälten under varandra */
-  gap: 8px;
-  padding-right: 24px; /* lite avstånd från texten till vänster */
+  flex-direction: column;
+  gap: 10px;
+  padding: clamp(20px, 4vw, 32px);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background: var(--color-surface);
+  box-shadow: 0 4px 14px rgba(41, 36, 56, 0.08);
 }
 
-@media (max-width: 800px) { /* När skärmen är smalare än 800px, gör gridet till en kolumn istället för två. */
+.kontakt label {
+  margin-top: 6px;
+  color: var(--color-text);
+  font-weight: 700;
+}
+
+.kontakt input,
+.kontakt textarea {
+  /* Tillräcklig höjd, kant och tydlig text gör fälten lättare att använda. */
+  width: 100%;
+  min-height: 48px;
+  padding: 11px 12px;
+  border: 1px solid #827b8a;
+  border-radius: 8px;
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+.kontakt textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+.kontakt input::placeholder,
+.kontakt textarea::placeholder {
+  color: #696273;
+  opacity: 1;
+}
+
+.kontakt form [role="alert"] {
+  /* Felmeddelandet får tydlig röd färg och behåller läsbar kontrast. */
+  margin: 4px 0;
+  color: #a32135;
+  font-weight: 600;
+}
+
+.kontakt-bekräftelse {
+  max-width: 700px;
+  min-height: 60vh;
+  margin: 0 auto;
+  padding: clamp(48px, 8vw, 96px) 24px;
+  color: var(--color-brand);
+  font-size: 22px;
+  font-weight: 700;
+}
+
+@media (max-width: 800px) {
+  /* På smala skärmar läggs formuläret under introduktionstexten. */
   .kontakt {
-    grid-template-columns: 1fr; /* bara en kolumn */
+    grid-template-columns: 1fr;
   }
 }

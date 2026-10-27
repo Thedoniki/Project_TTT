@@ -1,21 +1,26 @@
-/* .header väljer elementet med className="header" i Header.jsx.
-   CSS-regler här styr utseende, inte värdena för namn eller titel-props. */
+/* Tidigare utseende: halvtransparent blågrå bakgrund och mindre fast rubrik.
+.header { padding: 15px 5px; background-color: #30455285; }
+.header h1 { font-size: 40px; margin: 10px 0; }
+.header p { font-size: 15px; }
+*/
+
+/* Headern delar nu accentfärg med navigation och footer. */
 .header {
-  /* text-align centrerar den text som finns inuti header-elementet. */
+  padding: clamp(24px, 4vw, 48px) 20px;
+  background: var(--color-brand);
+  color: #ffffff;
   text-align: center;
-  /* padding skapar luft innanför elementets kanter (lodrätt, sedan vågrätt). */
-  padding: 15px 5px;
-  background-color: #30455285;
 }
 
-/* Mellanslaget i ".header h1" betyder: välj h1-element som är inuti .header. */
 .header h1 {
-  font-size: 40px;
-  /* Tar bort webbläsarens vanliga yttre marginal runt rubriken. */
-  margin: 10px 0;
+  /* clamp skalar rubriken mellan mobil- och desktopstorlek. */
+  margin: 0;
+  font-size: clamp(32px, 5vw, 48px);
+  line-height: 1.15;
 }
 
-/* På samma sätt väljer detta stycke p-element inuti header-klassen. */
 .header p {
-  font-size: 15px;
+  margin: 8px 0 0;
+  color: #f4eaf1;
+  font-size: 18px;
 }

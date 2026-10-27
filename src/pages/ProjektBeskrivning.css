@@ -1,144 +1,110 @@
-/* Sidans ytterbredd begränsas på stora skärmar och anpassas till mindre fönster. */
+/* Tidigare knappar hade en blågrå gradient och den öppna texten grå bakgrund.
+.projekt-beskrivning-innehåll-btn { background: linear-gradient(135deg, #b5b7c0, #596383); }
+.projekt-beskrivning-innehåll.är-öppet { background-color: #cac7cc; }
+*/
+
+/* Innehållet centreras med en läsbar maxbredd och responsiv ytterpadding. */
 .projekt-beskrivning-sida {
-	box-sizing: border-box;
-	width: min(100% - 48px, 1000px);
-	margin: 0 auto;
-	padding: clamp(32px, 7vw, 72px) 0;
-	color: #51476e;
+  box-sizing: border-box;
+  width: min(100% - 40px, 1000px);
+  min-height: 70vh;
+  margin: 0 auto;
+  padding: clamp(40px, 7vw, 80px) 0;
+  color: var(--color-text);
 }
 
-/* Innehållet fyller behållaren medan dess barn får egna mått och placeringar. */
 .projekt-beskrivning-innehåll-btn-content-placement {
-	width: 100%;
+  width: 100%;
 }
 
-/* Bilden centreras och skalas utan att beskäras eller förvrängas. */
 .projekt-beskrivning-sida .projekt-bild {
-	display: block;
-	width: 100%;
-	max-width: 800px;
-	max-height: 350px;
-	margin: 0 auto 24px;
-	object-fit: scale-down;
-	border-radius: 10px;
-	background-color: #ffffff94;
-	box-shadow: 0 8px 28px rgba(38, 31, 58, 0.12);
+  display: block;
+  width: 100%;
+  max-width: 800px;
+  max-height: 360px;
+  margin: 0 auto 28px;
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  background: var(--color-surface);
+  object-fit: scale-down;
+  box-shadow: 0 4px 16px rgba(41, 36, 56, 0.08);
 }
 
-/* clamp ger rubriken en läsbar storlek som växer mjukt med skärmbredden. */
 .projekt-beskrivning-sida h4 {
-	max-width: 70ch;
-	margin: 0 auto 24px;
-	color: #261f3a;
-	font-family: "Times New Roman", Times, serif;
-	font-size: clamp(17px, 2vw, 20px);
-	font-weight: 500;
-	line-height: 1.6;
-	text-align: center;
+  max-width: 70ch;
+  margin: 0 auto 28px;
+  color: var(--color-muted);
+  font-size: clamp(17px, 2vw, 20px);
+  font-weight: 500;
+  line-height: 1.7;
+  text-align: center;
 }
 
-/* Två lika stora kolumner håller knapparna jämnstora med ett tydligt mellanrum. */
 .projekt-beskrivning-knappar {
-	display: grid;
-	grid-template-columns: repeat(2, minmax(0, 1fr));
-	gap: 18px;
-	margin: 0 0 20px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0 0 20px;
 }
 
-/* Samma grundstil används av knappen och länken för ett enhetligt utseende. */
 .projekt-beskrivning-innehåll-btn,
 .projekt-beskrivning-github-btn {
-	box-sizing: border-box;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	min-width: 0;
-	min-height: 50px;
-	padding: 10px 18px;
-	border: 1px solid #4d5677;
-	border-radius: 14px;
-	background: linear-gradient(135deg, #b5b7c0, #596383);
-	color: #fcf6fa;
-	font-family: Arial, sans-serif;
-	font-size: clamp(16px, 1.8vw, 18px);
-	font-weight: 500;
-	letter-spacing: 0.02em;
-	line-height: 1.35;
-	text-align: center;
-	text-decoration: none;
-	cursor: pointer;
-	box-shadow: 0 4px 10px rgba(56, 64, 91, 0.24), inset 0 1px rgba(255, 255, 255, 0.2);
-	transition: background 180ms ease-in, box-shadow 180ms ease-in, transform 160ms ease-in;
+  /* Båda åtgärderna delar knappstil för ett enhetligt visuellt språk. */
+  box-sizing: border-box;
+  display: flex;
+  min-width: 0;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  border: 1px solid var(--color-brand);
+  border-radius: 8px;
+  background: var(--color-brand);
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.35;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 160ms ease, border-color 160ms ease;
 }
 
-/* Hover ger visuell återkoppling utan att ändra knappens storlek eller placering. */
 .projekt-beskrivning-innehåll-btn:hover,
 .projekt-beskrivning-github-btn:hover {
-	background: linear-gradient(135deg, #596383, #424a68);
-	box-shadow: 0 7px 14px rgba(56, 64, 91, 0.3), inset 0 1px rgba(255, 255, 255, 0.18);
-	transform: translateY(-2px);
+  border-color: var(--color-brand-hover);
+  background: var(--color-brand-hover);
 }
 
-/* Fokusmarkeringen gör knapparna tydliga när användaren navigerar med tangentbord. */
-.projekt-beskrivning-innehåll-btn:focus-visible,
-.projekt-beskrivning-github-btn:focus-visible {
-	outline: 2px solid #dddfe5;
-	outline-offset: 4px;
-}
-
-/* Den här rutan innehåller den längre projekttexten och får en rymlig, läsbar form. */
 .projekt-beskrivning-innehåll {
-	padding: clamp(16px, 4vw, 32px);
-	border: 1px solid #e6e0ed;
-	border-radius: 20px;
-	color: #342e3c;
-	box-shadow: 0 4px 18px rgba(42, 40, 47, 0.1);
-	line-height: 1.7;
-	text-align: left;
-	overflow-wrap: anywhere;
+  /* Ytan och radavståndet håller även den långa beskrivningen läsbar. */
+  padding: clamp(20px, 4vw, 36px);
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  background: var(--color-surface);
+  color: var(--color-text);
+  box-shadow: 0 4px 16px rgba(41, 36, 56, 0.08);
+  line-height: 1.75;
+  overflow-wrap: anywhere;
 }
 
-/* Klassen läggs till från React när användaren väljer att visa mer information. */
 .projekt-beskrivning-innehåll.är-öppet {
-	background-color: #cac7cc;
-	color: #342e3c;
-	font-family: "Times New Roman", Times, serif;
-	font-weight: 550;
-	font-size: 17px;
-	text-align: justify;
+  background: var(--color-surface-muted);
 }
 
-/* Bevara radbrytningar i texten samtidigt som onödigt standardmellanrum tas bort. */
 .projekt-beskrivning-innehåll p {
-	margin: 0;
-	white-space: pre-line;
+  margin: 0;
+  white-space: pre-line;
 }
 
-/* På små skärmar minskas sidmarginaler och knappmellanrum för att spara plats. */
 @media (max-width: 600px) {
-	.projekt-beskrivning-sida {
-		width: min(100% - 32px, 1000px);
-	}
+  /* Knapparna staplas på mobil så texten inte blir för trång. */
+  .projekt-beskrivning-sida {
+    width: min(100% - 32px, 1000px);
+  }
 
-	.projekt-beskrivning-sida .projekt-bild {
-		border-radius: 12px;
-	}
-
-	.projekt-beskrivning-knappar {
-		gap: 12px;
-	}
-
-	.projekt-beskrivning-innehåll-btn,
-	.projekt-beskrivning-github-btn {
-		padding: 8px 10px;
-		font-size: 15px;
-	}
-}
-
-/* Respektera operativsystemets inställning för minskad rörelse. */
-@media (prefers-reduced-motion: reduce) {
-	.projekt-beskrivning-innehåll-btn,
-	.projekt-beskrivning-github-btn {
-		transition: none;
-	}
+  .projekt-beskrivning-knappar {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
 }

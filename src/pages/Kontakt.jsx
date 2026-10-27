@@ -19,27 +19,37 @@ function Kontakt() {
 	const [fel, setFel] = useState("");
 
 	function handleSubmit(e) {
-		e.preventDefault(); // stoppa sidomladdning
-		console.log(namn, email, meddelande);
+		e.preventDefault();
+		setFel("");
 
-		// Kontrollera att fälten inte är tomma innan submit
+		// Trim gör att ett fält med enbart mellanslag också räknas som tomt.
 		if (!namn.trim() || !email.trim() || !meddelande.trim()) {
 			setFel("Fyll i alla fält.");
 			return;
 		}
 
-		setEmail(""); // rensa fälten
-		//Kontrollera att email innehåller @
-		if (!email.includes("@")) {
+		// Kontrollera e-post först efter att alla obligatoriska värden finns.
+		if (!email.trim().includes("@")) {
 			setFel("E-postadressen måste innehålla @.");
 			return;
 		}
+
+		// Tidigare rensades e-post före valideringen: setEmail("");
+		// Rensa först när hela formuläret har passerat valideringen.
+		setEmail("");
 		setMeddelande("");
 		setFel("");
-		setSkickat(true); // visa tackmeddelande
+		setSkickat(true);
 	}
 
-	if (skickat) return <p>Tack för ditt meddelande, {namn}!</p>;
+	// role=status låter hjälpmedel meddela att formuläret har skickats.
+	if (skickat) {
+		return (
+			<p className="kontakt-bekräftelse" role="status">
+				Tack för ditt meddelande, {namn}!
+			</p>
+		);
+	}
 
 	return (
 		<section id="kontakt" className="kontakt">
@@ -50,10 +60,16 @@ function Kontakt() {
 			</div>
 
 			{/* Höger kolumn: formuläret */}
-			<form onSubmit={handleSubmit}>
+			{/* noValidate låter den egna valideringen visa begripliga fel i sidan. */}
+			<form onSubmit={handleSubmit} noValidate>
 				<label htmlFor="namn">Namn</label>
 				<div>
+					{/* id kopplar labeln till rätt fält; name och autoComplete förbättrar formulärstöd. */}
 					<input
+						id="namn"
+						name="namn"
+						autoComplete="name"
+						required
 						value={namn}
 						onChange={(e) => setNamn(e.target.value)}
 						placeholder="Skriv ditt namn"
@@ -61,27 +77,36 @@ function Kontakt() {
 				</div>
 				<label htmlFor="epost">E-post</label>
 				<div>
-					{" "}
-					{/** Detta kallas en kontollerad input */}
 					<input
+						id="epost"
+						name="email"
+						type="email"
+						autoComplete="email"
+						inputMode="email"
+						required
 						value={email}
 						onChange={(e) => setEmail(e.target.value)}
 						placeholder="Ange email"
 					/>
-					<p>Du skriver: {email}</p>
+					{/* Tidigare visades varje tecken medan man skrev: <p>Du skriver: {email}</p> */}
 				</div>
 				<label htmlFor="meddelande">Meddelande</label>
 				<div>
-					<input
+					{/* Tidigare var meddelandet en enradig input:
+					<input value={meddelande} onChange={(e) => setMeddelande(e.target.value)} />
+					*/}
+					<textarea
+						id="meddelande"
+						name="meddelande"
+						required
 						value={meddelande}
 						onChange={(e) => setMeddelande(e.target.value)}
 						placeholder="Skriv ditt meddelande"
 					/>
 				</div>
-				{/* Visa ett felmeddelande om validering misslyckas */}
-				{fel && <p>{fel}</p>}
-				{/* // Rätt: */}
-				<button type="submit">Skicka</button>{" "}
+				{/* role=alert meddelar valideringsfel direkt för skärmläsare. */}
+				{fel && <p id="kontakt-fel" role="alert">{fel}</p>}
+				<button type="submit">Skicka</button>
 			</form>
 		</section>
 	);

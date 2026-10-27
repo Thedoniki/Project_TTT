@@ -1,58 +1,85 @@
-.projekt-kort {
-  background-color: #ffffff;
-  border-radius: 8px;
-  overflow: hidden;                      /* bilden får runda hörn upptill */
-  text-align: left;
-  box-shadow: 0 2px 8px rgba(74, 46, 81, 0.12);
-    display: flex;
-  flex-direction: column;                /* bild och info under varandra */
+/* Tidigare kortstil:
+.projekt-kort { background-color: #ffffff; border-radius: 8px; box-shadow: 0 2px 8px rgba(74, 46, 81, 0.12); }
+.projekt-bild { height: auto; object-fit: contain; }
+.projekt-taggar li { background-color: #ede9f6; color: #7e2b60; }
+.projekt-knapp { background-color: #7e2b60; color: #fcf6fa; }
+*/
 
+/* En kant och mjuk skugga avgränsar kortet mot sektionens bakgrund. */
+.projekt-kort {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background: var(--color-surface);
+  box-shadow: 0 4px 14px rgba(41, 36, 56, 0.08);
 }
 
 .projekt-bild {
+  /* Projektbilderna visas som centrerade cirklar, som porträttet på Om mig. */
   display: block;
-  width: 100%;
-  height: auto; /* höjden anpassas efter bildens proportioner */
-  object-fit: contain;/* contain gör att hela bilden syns utan att förvrängas eller beskäras. Bilden ryms inom området som är 100% av kortets bredd och 160px högt. Om bildens proportioner inte matchar området blir det tomrum på sidorna eller ovanför och nedanför; den vita bakgrundsfärgen syns då där.
-  background-color: #ffffff;
-  
-  /*object-fit: cover; <-- bilden fyller rutan utan att bli utdragen */
+  width: min(100% - 40px, 220px);
+  aspect-ratio: 1;
+  margin: 20px auto 0;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--color-surface-muted);
 }
 
 .projekt-info {
-  padding: 20px;
-    flex: 1;                               /* info-delen fyller resten av kortet */
   display: flex;
+  flex: 1;
   flex-direction: column;
+  padding: 20px;
 }
+
 .projekt-info p {
-  margin-bottom: 16px;                   /* luft mellan texten och knappen */
+  margin: 0 0 16px;
+  color: var(--color-muted);
 }
+
 .projekt-info h3 {
   margin: 0 0 8px;
-  color: #261f3a;
+  color: var(--color-text);
   font-size: 20px;
+  line-height: 1.3;
 }
 
+.projekt-taggar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0;
+  margin: 0 0 20px;
+  list-style: none;
+}
+
+.projekt-taggar li {
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: var(--color-surface-muted);
+  color: var(--color-brand);
+  font-size: 14px;
+  font-weight: 600;
+}
 
 .projekt-knapp {
-  display: inline-block;
-/*  margin-top: 16px;    ändring tors ef 15/10*/
- margin-top: auto;                 /* skjuter knappen längst ner */
-  align-self: flex-start;           /* knappen blir inte lika bred som kortet */
-  padding: 10px 20px;
-  border-radius: 10px;
-  background-color: #7e2b60;
-  color: #fcf6fa;
-  font-weight: 600;
-  text-decoration: none;            /* tar bort understrykningen */
+  /* Minsta klickhöjd följer samma riktlinje som övriga interaktiva element. */
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  align-self: flex-start;
+  margin-top: auto;
+  padding: 9px 16px;
+  border-radius: 8px;
+  background: var(--color-brand);
+  color: #ffffff;
+  font-weight: 700;
+  text-decoration: none;
 }
 
 .projekt-knapp:hover {
-  background-color: #320120;
-}
-
-.projekt-knapp:focus-visible {
-  outline: 3px solid #7e2b60;
-  outline-offset: 4px;
+  background: var(--color-brand-hover);
 }
