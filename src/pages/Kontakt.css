@@ -86,6 +86,10 @@
   font-size: 22px;
   font-weight: 700;
 }
+.kontakt form button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
 
 @media (max-width: 800px) {
   /* På smala skärmar läggs formuläret under introduktionstexten. */
