@@ -92,8 +92,24 @@
 }
 
 @media (max-width: 800px) {
-  /* På smala skärmar läggs formuläret under introduktionstexten. */
+   /* På smala skärmar läggs formuläret under introduktionstexten. */
   .kontakt {
     grid-template-columns: 1fr;
+  }
+  /* Stapla bild och text när två spalter blir för trånga. */
+  .kontakt {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    padding: 64px 32px 72px;
+  }
+
+  .hero-bild {
+    max-height: 360px;
+  }
+}
+
+@media (min-width: 600px) {
+  .projekt {
+    padding: 64px 32px;            /* mer luft på större skärm */
   }
 }

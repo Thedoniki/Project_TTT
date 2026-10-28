@@ -5,8 +5,10 @@
 
 /* Projektsektionen använder den ljusa globala ytan så korten får bra kontrast. */
 .projekt {
-  padding: clamp(40px, 6vw, 72px) clamp(20px, 5vw, 64px);
-  background: var(--color-background);
+  padding: 40px 20px;              /* mobil först */
+/*   padding: clamp(40px, 6vw, 72px) clamp(20px, 5vw, 64px);
+ */  
+ background: var(--color-background);
 }
 
 .projekt h2 {
@@ -44,4 +46,9 @@
   gap: 24px;
   max-width: var(--content-width);
   margin: 0 auto;
+}
+@media (min-width: 600px) {
+  .projekt {
+    padding: 64px 32px;            /* mer luft på större skärm */
+  }
 }

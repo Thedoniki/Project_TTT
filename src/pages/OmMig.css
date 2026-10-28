@@ -88,7 +88,9 @@
 @media (max-width: 800px) {
   /* På mobil staplas text och bild i läsordning. */
   .om-mig {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    padding: 64px 32px 72px;
     grid-template-areas:
       "content"
       "image";
@@ -97,5 +99,14 @@
   .om-mig-bild {
     justify-self: center;
     width: min(80vw, 340px);
+    max-height: 360px;
+
+  }
+}
+
+
+@media (min-width: 600px) {
+  .om-mig {
+    padding: 64px 32px;            /* mer luft på större skärm */
   }
 }
