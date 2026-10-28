@@ -109,7 +109,11 @@ textarea:focus-visible {
   background: #d9c4d5;
   color: var(--color-text);
 }
-
+/* ingen bild någonsin blir bredare än sin plats */
+img {
+  max-width: 100%;
+  height: auto;
+}
 @media (prefers-reduced-motion: reduce) {
   /* Följ användarens operativsystemsinställning för minskad rörelse. */
   *,

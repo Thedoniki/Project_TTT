@@ -7,10 +7,12 @@
 /* Innehåll och bild balanseras med spalter som kan krympa utan overflow. */
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+  /* grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr); */
+  grid-template-columns: 1fr;      /* mobil: bild under text */
   align-items: center;
   gap: clamp(32px, 6vw, 72px);
   padding: clamp(40px, 7vw, 88px) clamp(20px, 8vw, 120px);
+  text-align: left;
   background: var(--color-surface-muted);
   color: var(--color-text);
 }
@@ -76,7 +78,9 @@
 @media (max-width: 800px) {
   /* Stapla bild och text när två spalter blir för trånga. */
   .hero {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    padding: 64px 32px 72px;
   }
 
   .hero-bild {
